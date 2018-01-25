@@ -23,7 +23,10 @@ class SayCommand extends commando.Command {
         }
         // Say args
         message.channel.send(args);
-        message.delete().catch(() => {});
+		message.delete().catch(() => {});
+		
+		// Log user and message to console
+		console.log(`say called by ${message.author.username} with message: ${args}`);
 	}
 }
 

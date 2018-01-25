@@ -1,6 +1,7 @@
 const commando = require("discord.js-commando");
 const storage = require("node-persist");
 const stats = require("../../commandStats");
+const settings = require("../../settings.json");
 
 class RainbowToggleCommand extends commando.Command {
 	constructor(client) {
@@ -18,21 +19,17 @@ class RainbowToggleCommand extends commando.Command {
         stats.update("rainbowtoggle");
         
         // Check user
-        if (message.author.id != "240268796173090819") {
+        if (message.author.id != settings.owner) {
             message.reply("This command can only be run by the bot owner");
             return;
         }
 
         // Get data
-        storage.getItem("240268796173090819")
+        storage.getItem(settings.owner)
           .then((userData) => {
-			if (userData.rainbow) {
-                userData.rainbow = false;
-                message.member.highestRole.setColor("206694");
-            } else {
-                userData.rainbow = true;
-            }
-            storage.setItem("240268796173090819", userData);
+            userData.rainbow = (userData.rainbow)? false : true;
+            storage.setItem(settings.owner, userData);
+            if (!userData.rainbow) this.guilds.get("309166471135756321").roles.get("309166547748782080").setColor("206694");
 		  });
 	}
 }

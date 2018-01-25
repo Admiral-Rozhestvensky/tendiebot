@@ -10,6 +10,7 @@ class PruneCommand extends commando.Command {
 			description: "Prunes messages",
 			examples: ["!prune <amount>"],
 			guildOnly: true,
+			
 			args: [
 				{
 					key: "amount",

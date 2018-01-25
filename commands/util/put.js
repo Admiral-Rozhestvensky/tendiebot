@@ -1,21 +1,21 @@
-const commando = require('discord.js-commando');
-const storage = require('node-persist');
+const commando = require("discord.js-commando");
+const storage = require("node-persist");
 const stats = require("../../commandStats");
 
 class PutCommand extends commando.Command {
 	constructor(client) {
 		super(client, {
-			name: 'put',
-			group: 'util',
-			memberName: 'put',
-			description: 'Puts your thing into memory',
-			examples: ['!put <thing>'],
+			name: "put",
+			group: "util",
+			memberName: "put",
+			description: "Puts your thing into memory",
+			examples: ["!put <thing>"],
 
 			args: [
 				{
-					key: 'data',
-					prompt: 'What do you want to put in memory?',
-					type: 'string'
+					key: "data",
+					prompt: "What do you want to put in memory?",
+					type: "string"
 				}
 			]
 		});

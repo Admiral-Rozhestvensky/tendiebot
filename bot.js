@@ -46,3 +46,34 @@ client.on("messageUpdate", (omessage, nmessage) => {
 
 // Login
 client.login(settings.token);
+
+client.on("ready", () => {
+    // Color fun?
+
+    var steps = 0, frequency = 0.2, phase1 = 0, phase2 = 2, phase3 = 4, center = 220, width = 35;
+
+    function makeColors() {
+        if (steps > 30) {
+            steps = 1;
+        } else {
+            steps++;
+        }
+
+        for (var i = 0; i < steps; ++i) {
+            var red = Math.sin(frequency * i + phase1) * width + center;
+            var grn = Math.sin(frequency * i + phase2) * width + center;
+            var blu = Math.sin(frequency * i + phase3) * width + center;
+            var innerColor = [Math.round(red), Math.round(grn), Math.round(blu)];
+        }
+        return innerColor;
+    }
+
+    client.setInterval(() => {
+        var rainbow = storage.getItem(settings.owner)
+          .then((ownerData) => {
+            if (ownerData.rainbow) {
+                client.guilds.get("309166471135756321").roles.get("309166547748782080").setColor(makeColors());
+            }
+          });
+    }, 1000);
+});

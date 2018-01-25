@@ -24,13 +24,6 @@ storage.init({
     dir: "storage"
 });
 
-//Spotfiy API Setup
-/*const SpotifyWebApi = require("spotify-web-api-node");
-const spotifyApi = new SpotifyWebApi({
-    // Credentials here
-});*/
-const urlRegex = /open.spotify.com\/(track|album)\/[A-Za-z0-9\-\=]*/;
-
 // Responses+
 client.on("message", (message) => {
     // Create lowercase content variable for .includes() checking
@@ -40,11 +33,6 @@ client.on("message", (message) => {
     if (content.includes("🖕")) {
         message.delete();
         message.reply("This is a good Christian server, please refrain from using vulgar emojis.");
-    }
-    // Spotify Playlist
-    if (urlRegex.test(message.content)) {
-        var trackID = message.content.match(urlRegex)[0].slice(23);
-        message.reply(`Your song with id ${trackID} would have been added to the spotify playlist`);
     }
 });
 client.on("messageUpdate", (omessage, nmessage) => {

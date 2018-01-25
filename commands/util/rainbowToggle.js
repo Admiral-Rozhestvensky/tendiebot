@@ -29,7 +29,7 @@ class RainbowToggleCommand extends commando.Command {
           .then((userData) => {
             userData.rainbow = (userData.rainbow)? false : true;
             storage.setItem(settings.owner, userData);
-            if (!userData.rainbow) this.guilds.get("309166471135756321").roles.get("309166547748782080").setColor("206694");
+            if (!userData.rainbow) message.member.highestRole.setColor("206694");
 		  });
 	}
 }

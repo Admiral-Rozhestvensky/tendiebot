@@ -14,5 +14,13 @@
     "node-persist": "^2.1.0",
     "pm2": "^2.9.1",
     "spotify-web-api-node": "^2.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t1mmu/tendiebot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/t1mmu/tendiebot/issues"
+  },
+  "homepage": "https://github.com/t1mmu/tendiebot#readme"
 }

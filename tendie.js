@@ -72,7 +72,7 @@ client.on("ready", () => {
         var rainbow = storage.getItem(settings.owner)
           .then((ownerData) => {
             if (ownerData.rainbow) {
-                client.guilds.get("309166471135756321").roles.get("309166547748782080").setColor(makeColors());
+                client.guilds.get(settings.studychat).roles.get("309166547748782080").setColor(makeColors());
             }
           });
     }, 1000);
@@ -81,11 +81,11 @@ client.on("ready", () => {
     var gameAmount = settings.games.length;
     var index = 0;
     client.setInterval(() => {
-        client.user.setGame(settings.games[index]);
-        if (index > settings.games.length - 1) {
-            index = 0;
-        } else {
-            index++;
-        }
+        client.user.setActivity(settings.games[index]);
+        index++;
+        if (index > settings.games.length - 1) index = 0;
     }, 30000);
+
+    // Turned the fuck on
+    client.guilds.get(settings.studychat).channels.find("name", "general").send("beep boop i'm turned the fuck on");
 });

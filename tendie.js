@@ -47,9 +47,9 @@ client.on("messageUpdate", (omessage, nmessage) => {
 // Login
 client.login(settings.token);
 
+// General things to happen after the client turns on
 client.on("ready", () => {
     // Color fun?
-
     var steps = 0, frequency = 0.2, phase1 = 0, phase2 = 2, phase3 = 4, center = 220, width = 35;
 
     function makeColors() {
@@ -76,4 +76,16 @@ client.on("ready", () => {
             }
           });
     }, 1000);
+
+    // Literal Game Changer
+    var gameAmount = settings.games.length;
+    var index = 0;
+    client.setInterval(() => {
+        client.user.setGame(settings.games[index]);
+        if (index > settings.games.length - 1) {
+            index = 0;
+        } else {
+            index++;
+        }
+    }, 30000);
 });

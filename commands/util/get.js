@@ -31,7 +31,7 @@ class GetCommand extends commando.Command {
 					message.reply(userData.data);
 				}
 			}
-		});
+        });
 	}
 }
 

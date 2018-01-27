@@ -49,6 +49,7 @@ client.login(settings.token);
 
 // General things to happen after the client turns on
 client.on("ready", () => {
+    /*
     // Color fun?
     var steps = 0, frequency = 0.2, phase1 = 0, phase2 = 2, phase3 = 4, center = 220, width = 35;
 
@@ -76,6 +77,7 @@ client.on("ready", () => {
             }
           });
     }, 1000);
+    */
 
     // Literal Game Changer
     var gameAmount = settings.games.length;

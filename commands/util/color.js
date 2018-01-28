@@ -14,7 +14,7 @@ class ColorCommand extends commando.Command {
             args: [
                 {
                     key: "color",
-                    prompt: "What do you want your color set to? (3 character or 6 character hex code, no hashtag)",
+                    prompt: "What do you want your color set to? (6 character hex code, no hashtag)",
                     type: "string"
                 }
             ]

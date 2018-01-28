@@ -31,7 +31,7 @@ class ColorCommand extends commando.Command {
         // Check for valid hex
         const regex = /^[A-Fa-f0-9]{6}$/;
         if (!regex.test(color)) {
-            message.reply("Your color isn't a valid hexadecimal color, has a hashtag preceeding it, or is 3 characters long");
+            message.reply("The hex number must not start with a hashtag, be 6 characters long, and be valid hexadecimal");
             return;
         }
 

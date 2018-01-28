@@ -28,7 +28,7 @@ storage.init({
 client.on("message", (message) => {
     // Create lowercase content variable for .includes() checking
     var content = message.content.toLowerCase();
-    if (content.includes("dick") && content.includes("me")) message.channel.send(`-dicks ${message.author.nickname} harder-`);
+    if (content.includes("dick") && content.includes("me")) message.channel.send(`-dicks ${message.author.username} harder-`);
     if (content.includes("hanzo")) message.channel.send('"CUNT" -Ragtagg');
     if (content.includes("🖕")) {
         message.delete();

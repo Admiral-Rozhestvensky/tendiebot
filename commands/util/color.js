@@ -15,7 +15,15 @@ class ColorCommand extends commando.Command {
                 {
                     key: "color",
                     prompt: "What do you want your color set to? (6 character hex code, no hashtag)",
-                    type: "string"
+                    type: "string",
+                    validate: (color) => {
+                        const regex = /^[A-Fa-f0-9]{6}$/;
+                        if(regex.test(color)) {
+                            return true;
+                        } else {
+                            return "The hex number must not start with a hashtag, be 6 characters long, and be valid hexadecimal";
+                        }
+                    }
                 }
             ]
         });
@@ -27,13 +35,6 @@ class ColorCommand extends commando.Command {
 
         // Set color variable
         var color = args.color;
-
-        // Check for valid hex
-        const regex = /^[A-Fa-f0-9]{6}$/;
-        if (!regex.test(color)) {
-            message.reply("The hex number must not start with a hashtag, be 6 characters long, and be valid hexadecimal");
-            return;
-        }
 
         // Check for length and set color
         message.member.highestRole.setColor(color)

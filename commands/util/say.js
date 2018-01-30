@@ -8,7 +8,7 @@ class SayCommand extends commando.Command {
 			group: "util",
 			memberName: "say",
 			description: "Make Tendie say something (auto deletes command message)",
-            examples: ["!say"]
+            examples: ["!say <string>"]
 		});
 	}
 

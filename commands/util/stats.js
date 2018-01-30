@@ -17,12 +17,22 @@ class StatsCommand extends commando.Command {
 		// Statistics
         stats.update("stats");
         
+        // TODO: make this print an ordered list
         storage.getItem("commandStats").then(statsList => {
-            var statsPrintable = ``;
+            /*var statsPrintable = ``;
             Object.keys(statsList).forEach(command => {
                 statsPrintable += `${command} : ${statsList[command]}\n`;
+            }).then( () => {
+                message.channel.send(statsPrintable);
+            });*/
+            var max = -1, maxKey, statsPrintable;
+            Object.keys(statsList).forEach((key) => {
+                if (statsList[key] > max) {
+                    maxKey = key;
+                    max = statsList[key];
+                }
             });
-            message.channel.send(statsPrintable);
+            statsPrintable += `${maxKey} : ${statsList[maxKey]}`
         });
 	}
 }

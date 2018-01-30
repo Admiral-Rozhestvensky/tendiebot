@@ -8,7 +8,7 @@ class ColorCommand extends commando.Command {
             group: "util",
             memberName: "color",
             description: "Sets your role color",
-            examples: ["!color <hex>"],
+            examples: ["!color <hex|random>"],
             guildOnly: true,
 
             args: [

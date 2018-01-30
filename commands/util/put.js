@@ -9,7 +9,7 @@ class PutCommand extends commando.Command {
 			group: "util",
 			memberName: "put",
 			description: "Puts your thing into memory",
-			examples: ["!put <thing>"],
+			examples: ["!put <string>"],
 
 			args: [
 				{

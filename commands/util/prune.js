@@ -14,9 +14,9 @@ class PruneCommand extends commando.Command {
 			args: [
 				{
 					key: "amount",
-					prompt: "How many messages are you going to prune? (max of 100)",
+					prompt: "How many messages are you going to prune? (max of 99)",
 					type: "integer",
-					max: 100,
+					max: 99,
 					min: 1
 				}
 			]

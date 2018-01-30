@@ -18,7 +18,7 @@ class ColorCommand extends commando.Command {
                     type: "string",
                     validate: (color) => {
                         const regex = /^[A-Fa-f0-9]{6}$/;
-                        if(regex.test(color)) {
+                        if(regex.test(color) || color == "random") {
                             return true;
                         } else {
                             return "The hex number must not start with a hashtag, be 6 characters long, and be valid hexadecimal";
@@ -35,6 +35,9 @@ class ColorCommand extends commando.Command {
 
         // Set color variable
         var color = args.color;
+        if(color == "random"){
+            color = (Math.random()*0xFFFFFF<<0).toString(16);
+        }
 
         // Check for length and set color
         message.member.highestRole.setColor(color)
